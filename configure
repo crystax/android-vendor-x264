@@ -320,7 +320,8 @@ relative_path() {
     dirname "$up${path#"$base/"}"
 }
 
-SRCPATH="$(relative_path "$(dirname "$0")")"
+#SRCPATH="$(relative_path "$(dirname "$0")")"
+SRCPATH="$(dirname $0)"
 echo "$SRCPATH" | grep -q ' ' && die "Out of tree builds are impossible with whitespace in source path."
 [ -e "$SRCPATH/config.h" -o -e "$SRCPATH/x264_config.h" ] && die "Out of tree builds are impossible with config.h/x264_config.h in source dir."
 
