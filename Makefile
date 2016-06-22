@@ -302,7 +302,9 @@ ifneq ($(IMPLIBNAME),)
 	$(INSTALL) -m 755 $(SONAME) $(DESTDIR)$(bindir)
 	$(INSTALL) -m 644 $(IMPLIBNAME) $(DESTDIR)$(libdir)
 else ifneq ($(SONAME),)
+ifneq ($(SONAME),libx264.$(SOSUFFIX))
 	ln -f -s $(SONAME) $(DESTDIR)$(libdir)/libx264.$(SOSUFFIX)
+endif
 	$(INSTALL) -m 755 $(SONAME) $(DESTDIR)$(libdir)
 endif
 

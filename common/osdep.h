@@ -267,7 +267,9 @@ static ALWAYS_INLINE int x264_pthread_fetch_and_add( int *val, int add, x264_pth
 
 #define WORD_SIZE sizeof(void*)
 
+#ifndef asm
 #define asm __asm__
+#endif
 
 #if WORDS_BIGENDIAN
 #define endian_fix(x) (x)
