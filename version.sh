@@ -6,7 +6,7 @@ api="$(grep '#define X264_BUILD' < x264.h | sed 's/^.* \([1-9][0-9]*\).*$/\1/')"
 ver="x"
 version=""
 
-if [ -d .git ] && command -v git >/dev/null 2>&1 ; then
+if [ -e .git ] && command -v git >/dev/null 2>&1 ; then
     localver="$(($(git rev-list HEAD | wc -l)))"
     if [ "$localver" -gt 1 ] ; then
         ver_diff="$(($(git rev-list origin/master..HEAD | wc -l)))"
